@@ -1,0 +1,22 @@
+<%- include("header") -%> <!--includes header templates-->
+    <div class="box" id="heading">
+        <h1> <%=listTitle%> </h1> <!--value is sent from server,here we update it and show it  -->
+    </div>
+    
+    <div class="box">
+        <!-- Scriplet tags to use JS inside HTML and these tages should be on every line -->
+        <% for(let i=0;i<newListItems.length;i++){ %>
+            <div class="item">
+                <input type="checkbox">
+                <p><%= newListItems[i]%></p>
+            </div>
+        <% } %>
+
+        <form class="item" action="/" method="post"> 
+            <input type="text" name="newItem" placeholder="New Task" autocomplete="off">
+            <button type="submit" name="list" value=<%=listTitle%>>+</button>
+        </form>
+
+    </div>
+
+<%- include("footer") -%>
